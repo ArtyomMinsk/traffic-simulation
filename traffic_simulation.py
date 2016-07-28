@@ -1,4 +1,5 @@
-import pandas
+import numpy as np
+
 class Traffic:
 
     pass
