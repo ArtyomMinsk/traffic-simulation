@@ -10,7 +10,6 @@ class Car:
         self.speed = 0
         self.distance_between = distance_between
 
-
     def accelerate(self):
         if self.speed < self.max_speed - 2:
             self.speed += self.acceleration
