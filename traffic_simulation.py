@@ -10,6 +10,7 @@ class Car:
         self.speed = 0
         self.distance_between = distance_between
 
+
     def accelerate(self):
         if self.speed < self.max_speed - 2:
             self.speed += self.acceleration
@@ -77,39 +78,44 @@ class Traffic:
         return locations
 
 
-def main():
-    num_cars = 30
-    seconds = 60
+# def main():
+#     location_list = []
+#     all_speeds = []
+#     num_cars = 30
+#     seconds = 60
+#
+#     starting_positions = Traffic.get_starting_positions(num_cars)
+#     # print(starting_positions)
+#
+#     cars = Traffic.set_up_cars(starting_positions, num_cars)
+#
+#     for num in range(seconds):
+#         speeds = []
+#         for car in range(len(cars)):
+#             # Last car in the circle must be compared to car 0
+#             if car == num_cars - 1:
+#                 Car.randomly_slow(cars[car])
+#                 Car.find_distance_between(cars[car], cars[0])
+#
+#                 if Traffic.too_close(cars[car], cars[0]):
+#                     Car.change_position(cars[car])
+#                 else:
+#                     Car.accelerate(cars[car])
+#                     Car.change_position(cars[car])
+#
+#             # All other cars in the circle must be compared to car+1
+#             else:
+#                 Car.randomly_slow(cars[car])
+#                 Car.find_distance_between(cars[car], cars[car + 1])
+#
+#                 if Traffic.too_close(cars[car], cars[car + 1]):
+#                     Car.change_position(cars[car])
+#                 else:
+#                     Car.accelerate(cars[car])
+#                     Car.change_position(cars[car])
+#             speeds.append(cars[car].speed)
+#         location_list.append(Traffic.location_list(cars))
+#         all_speeds.append(speeds)
+#     return (location_list, all_speeds)
 
-    starting_positions = Traffic.get_starting_positions(num_cars)
-    print(starting_positions)
-
-    cars = Traffic.set_up_cars(starting_positions, num_cars)
-
-    for num in range(seconds):
-        for car in range(len(cars)):
-            # Last car in the circle must be compared to car 0
-            if car == num_cars - 1:
-                Car.randomly_slow(cars[car])
-                Car.find_distance_between(cars[car], cars[0])
-
-                if Traffic.too_close(cars[car], cars[0]):
-                    Car.change_position(cars[car])
-                else:
-                    Car.accelerate(cars[car])
-                    Car.change_position(cars[car])
-
-            # All other cars in the circle must be compared to car+1
-            else:
-                Car.randomly_slow(cars[car])
-                Car.find_distance_between(cars[car], cars[car + 1])
-
-                if Traffic.too_close(cars[car], cars[car + 1]):
-                    Car.change_position(cars[car])
-                else:
-                    Car.accelerate(cars[car])
-                    Car.change_position(cars[car])
-
-        print(Traffic.location_list(cars))
-
-main()
+# main()
