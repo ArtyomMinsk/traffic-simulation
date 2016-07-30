@@ -26,8 +26,6 @@ class Car:
         if random.randint(1, 10) == 1:
             Car.decelerate(self)
             return True
-        else:
-            return False
 
     def change_position(self):
         self.position = (self.position + self.speed) % 1000
@@ -115,4 +113,4 @@ def main():
         all_speeds.append(speeds)
     return location_list, all_speeds
 
-main()
+print(main())
