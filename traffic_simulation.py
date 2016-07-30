@@ -113,6 +113,6 @@ def main():
             speeds.append(cars[car].speed)
         location_list.append(Traffic.location_list(cars))
         all_speeds.append(speeds)
-    return (location_list, all_speeds)
+    return location_list, all_speeds
 
 main()
