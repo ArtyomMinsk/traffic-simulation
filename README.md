@@ -2,7 +2,7 @@
 
 ## Description
 
-We analyzed the behavior of drivers on a new road to determine the optimal speed limits. We created a simulation to help us make this recommendation.
+We analyzed the behavior of drivers on a new road to determine the optimal speed limits. We created a simulation to help us make this recommendation. Our data was then plotted on two scatter plots showing the position and speed of each car throughout the 60 second simulation. This graphical representation of our data is located in the Jupyter Notebook file. 
 
 ## Motivation
 
