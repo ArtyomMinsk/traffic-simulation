@@ -24,7 +24,7 @@ class Car:
 
     def randomly_slow(self):
         if random.randint(1, 10) == 1:
-            Car.decelerate(self)
+            self.decelerate()
             return True
         else:
             return False
@@ -80,11 +80,11 @@ class Traffic:
 def main():
     location_list = []
     all_speeds = []
-    num_cars = 30
-    seconds = 60
+    num_cars = 3
+    seconds = 10
 
     starting_positions = Traffic.get_starting_positions(num_cars)
-    # print(starting_positions)
+    print(starting_positions)
 
     cars = Traffic.set_up_cars(starting_positions, num_cars)
 
