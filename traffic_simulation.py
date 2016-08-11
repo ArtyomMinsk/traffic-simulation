@@ -80,8 +80,8 @@ class Traffic:
 def main():
     location_list = []
     all_speeds = []
-    num_cars = 3
-    seconds = 10
+    num_cars = 30
+    seconds = 60
 
     starting_positions = Traffic.get_starting_positions(num_cars)
     print(starting_positions)
