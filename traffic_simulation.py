@@ -26,12 +26,24 @@ class Car:
         if random.randint(1, 10) == 1:
             Car.decelerate(self)
             return True
+        else:
+            return False
 
     def change_position(self):
         self.position = (self.position + self.speed) % 1000
 
     def find_distance_between(self, other):
         self.distance_between = (other.position - 5) - self.position
+
+    def too_close(self, other):
+        if self.distance_between < self.speed:
+            self.speed = other.speed
+            return True
+        elif self.distance_between == 0:
+            self.speed = 0
+            return True
+        else:
+            return False
 
 
 class Traffic:
@@ -57,14 +69,6 @@ class Traffic:
             car = Car(start[num], distance_between)
             cars.append(car)
         return cars
-
-    def too_close(self, other):
-        if self.distance_between < self.speed:
-            self.speed = other.speed
-            return True
-        elif self.distance_between == 0:
-            self.speed = 0
-            return True
 
     def location_list(cars):
         locations = []
@@ -92,7 +96,7 @@ def main():
                 Car.randomly_slow(cars[car])
                 Car.find_distance_between(cars[car], cars[0])
 
-                if Traffic.too_close(cars[car], cars[0]):
+                if Car.too_close(cars[car], cars[0]):
                     Car.change_position(cars[car])
                 else:
                     Car.accelerate(cars[car])
@@ -103,7 +107,7 @@ def main():
                 Car.randomly_slow(cars[car])
                 Car.find_distance_between(cars[car], cars[car + 1])
 
-                if Traffic.too_close(cars[car], cars[car + 1]):
+                if Car.too_close(cars[car], cars[car + 1]):
                     Car.change_position(cars[car])
                 else:
                     Car.accelerate(cars[car])
@@ -111,6 +115,9 @@ def main():
             speeds.append(cars[car].speed)
         location_list.append(Traffic.location_list(cars))
         all_speeds.append(speeds)
+
+    # print(location_list)
+    # print(all_speeds)
     return location_list, all_speeds
 
 print(main())
