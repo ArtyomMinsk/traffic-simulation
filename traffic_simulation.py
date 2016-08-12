@@ -84,35 +84,35 @@ def main():
     seconds = 60
 
     starting_positions = Traffic.get_starting_positions(num_cars)
-    print(starting_positions)
+    # print(starting_positions)
 
     cars = Traffic.set_up_cars(starting_positions, num_cars)
 
     for num in range(seconds):
         speeds = []
-        for car in range(len(cars)):
+        for car_number in range(len(cars)):
             # Last car in the circle must be compared to car 0
-            if car == num_cars - 1:
-                Car.randomly_slow(cars[car])
-                Car.find_distance_between(cars[car], cars[0])
+            if car_number == num_cars - 1:
+                cars[car_number].randomly_slow()
+                cars[car_number].find_distance_between(cars[0])
 
-                if Car.too_close(cars[car], cars[0]):
-                    Car.change_position(cars[car])
+                if cars[car_number].too_close(cars[0]):
+                    cars[car_number].change_position()
                 else:
-                    Car.accelerate(cars[car])
-                    Car.change_position(cars[car])
+                    cars[car_number].accelerate()
+                    cars[car_number].change_position()
 
             # All other cars in the circle must be compared to car+1
             else:
-                Car.randomly_slow(cars[car])
-                Car.find_distance_between(cars[car], cars[car + 1])
+                cars[car_number].randomly_slow()
+                cars[car_number].find_distance_between(cars[car_number + 1])
 
-                if Car.too_close(cars[car], cars[car + 1]):
-                    Car.change_position(cars[car])
+                if cars[car_number].too_close(cars[car_number + 1]):
+                    cars[car_number].change_position()
                 else:
-                    Car.accelerate(cars[car])
-                    Car.change_position(cars[car])
-            speeds.append(cars[car].speed)
+                    cars[car_number].accelerate()
+                    cars[car_number].change_position()
+            speeds.append(cars[car_number].speed)
         location_list.append(Traffic.location_list(cars))
         all_speeds.append(speeds)
 
