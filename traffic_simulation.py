@@ -120,4 +120,4 @@ def main():
     # print(all_speeds)
     return location_list, all_speeds
 
-print(main())
+# print(main())

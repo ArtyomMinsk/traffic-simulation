@@ -17,14 +17,6 @@ The repository contains the following project files:
 - Jupyter Notebook file with the graphs and calculations
 - text file with the environment requirements
 
-## Motivation
-
-- Understand basic statistical methods
-- Understand complex stochastic simulations
-- Be able to use NumPy
-- Be able to create complex simulations
-- Be able to speak about your findings
-
-## Special Instructions
+## Installation
 
 In order to obtain the correct versions of everything needed to run this program, you will have to ```pip install -r requirements.txt```.
